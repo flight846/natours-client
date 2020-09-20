@@ -10,6 +10,7 @@ export class TourComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

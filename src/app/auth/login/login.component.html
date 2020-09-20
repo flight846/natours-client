@@ -1,0 +1,24 @@
+<main class="main">
+  <div class="login-form">
+    <h2 class="heading-secondary ma-bt-lg">Log into your account</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form form--login">
+      <div class="form__group">
+        <label class="form__label">Email Address</label>
+        <input formControlName="email" type="email" id="email" class="form__input" placeholder="you@example.com">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
+      </div>
+      <div class="form__group ma-bt-md">
+        <label class="form__label">Password</label>
+        <input formControlName="password" type="password" id="password" class="form__input" placeholder="••••••••">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <div class="form__group">
+        <button class="btn btn--green" [disabled]="loading">Login</button>
+      </div>
+    </form>
+  </div>
+</main>

@@ -1335,12 +1335,19 @@ body {
   border-bottom: 3px solid #55c57a;
 }
 
-.form__input:focus:invalid {
+.form__input:focus:invalid,
+.form__input.ng-invalid
+{
   border-bottom: 3px solid #ff7730;
 }
 
 .form__input::-webkit-input-placeholder {
   color: #bbb;
+}
+
+.form__input+.invalid-feedback {
+  font-size: 1.2em;
+  color: #ff7730;
 }
 
 .form__group:not(:last-child) {
@@ -1408,7 +1415,4 @@ body {
 // simple-notification
 .simple-notification-wrapper {
   width: 320px!important;
-}
-.simple-notification-wrapper.center {
-  transform: translateX(-100%)!important;
 }
