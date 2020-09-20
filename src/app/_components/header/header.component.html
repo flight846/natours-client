@@ -1,0 +1,36 @@
+<header class="header">
+  <nav class="nav nav--tours">
+    <a [routerLink]="['/']" class="nav__el">All tours</a>
+    <!-- <form class="nav__search">
+      <button class="nav__search-btn">
+        <svg>
+          <use xlink:href="./assets/images/icons.svg#icon-search"></use>
+        </svg>
+      </button>
+      <input
+        type="text"
+        placeholder="Search tours"
+        class="nav__search-input"
+      />
+    </form> -->
+  </nav>
+  <div class="header__logo">
+    <img src="./assets/images/logo-white.png" alt="Natours logo" />
+  </div>
+  <nav class="nav nav--user">
+    <ng-container *ngIf="false">
+      <a href="#" class="nav__el">My bookings</a>
+      <button class="nav__el">Log out</button>
+      <a href="#" class="nav__el">
+        <img src="img/user.jpg" alt="User photo" class="nav__user-img" />
+        <span>Jonas</span>
+      </a>
+    </ng-container>
+
+    <ng-container *ngIf="true">
+      <a [routerLink]="['/login']" class="nav__el">Log in</a>
+      <a [routerLink]="['/signup']" class="nav__el nav__el--cta">Sign up</a>
+    </ng-container>
+
+  </nav>
+</header>

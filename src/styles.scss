@@ -1404,3 +1404,11 @@ body {
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
 }
+
+// simple-notification
+.simple-notification-wrapper {
+  width: 320px!important;
+}
+.simple-notification-wrapper.center {
+  transform: translateX(-100%)!important;
+}
