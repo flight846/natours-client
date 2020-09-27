@@ -10,8 +10,8 @@ import { User } from '../_models/user.model';
 @Injectable({ providedIn: 'root' })
 
 export class AuthService {
-  private userSubject: BehaviorSubject<User>;
-  public user: Observable<User>;
+  private userSubject: BehaviorSubject<any>;
+  public user: Observable<any>;
 
   constructor(private router: Router, private http: HttpClient) {
     this.userSubject = new BehaviorSubject<User>(
@@ -20,7 +20,7 @@ export class AuthService {
     this.user = this.userSubject.asObservable();
   }
 
-  public get userValue(): User {
+  public get userValue(): any {
     return this.userSubject.value;
   }
 
@@ -45,6 +45,15 @@ export class AuthService {
     localStorage.removeItem('user');
     this.userSubject.next(null);
     this.router.navigate(['/']);
+    return this.http.get(`${environment.apiUrl}/users/logout`)
+      .pipe(
+        map((user) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem("user", JSON.stringify(user));
+          this.userSubject.next(user);
+          return user;
+        })
+      );
   }
 
   signup(user: User) {

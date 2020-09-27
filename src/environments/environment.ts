@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://natours-nodejs-expressjs.herokuapp.com/api/v1',
+  apiUrl: "https://natours-nodejs-expressjs.herokuapp.com/api/v1",
+  publicUrl: "https://natours-nodejs-expressjs.herokuapp.com/img/users/",
 };
 
 /*
