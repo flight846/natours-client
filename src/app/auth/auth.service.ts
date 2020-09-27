@@ -42,15 +42,13 @@ export class AuthService {
 
   logout() {
     // remove user from local storage and set current user to null
-    localStorage.removeItem('user');
-    this.userSubject.next(null);
-    this.router.navigate(['/']);
     return this.http.get(`${environment.apiUrl}/users/logout`)
       .pipe(
         map((user) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem("user", JSON.stringify(user));
-          this.userSubject.next(user);
+          localStorage.removeItem("user");
+          this.userSubject.next(null);
+          this.router.navigate(["/"]);
           return user;
         })
       );
